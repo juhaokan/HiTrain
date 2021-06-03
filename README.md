@@ -6,3 +6,8 @@
 
 ## 使用说明
 [中文](doc/releasenotes.md)
+
+## Authors
+
+## License
+Codis is licensed under MIT， see MIT-LICENSE.txt

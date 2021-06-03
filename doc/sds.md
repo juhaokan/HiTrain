@@ -11,6 +11,7 @@ curl -X POST -d  '{"tables":"lxp1.lxp1,lxp.order_info"}' http://ip:8081/fusion/d
 
 ## 动态增删表
 当业务需要新增加或者删除表同步，直接在配置信息表中增加或删除即可，Fusion网元监听到规则信息变化，更新到内存，实现动态增删表同步。当监听到新增或删除规则时，Fusion首先暂停当前的数据同步，如果是新增表同步并且需要全量同步则进行全量同步，如果是删除表同步则不再进行此表的同步（之前已经同步的数据不会删除，过期后会自动删除），然后从暂停位置开始增量同步。
+
 向规则表中添加一条operation字段为3的数据，则动态增加表同步；operation字段为4，则动态删除表同步；
 
 ## mysql 主从切换后高可用
@@ -71,3 +72,14 @@ xml数据格式
   </columns> 
 </content>
 ```
+
+## alter语句同步
+支持常用的ddl语句的同步（alter语句，包括直接使用alter和使用pt-online-schema-change工具）。
+
+## 指定表的column数据同步到kafka
+通过配置文件的开关和规则表中的kafka_is_full_column和kafka_replic_columns字段控制。
+
+* `kafka_is_full_column` int(4) NOT NULL DEFAULT '1' COMMENT '表变更是否是同步表中所有字段到kafka,1代表是,0代表不是',
+* `kafka_replic_columns` varchar(1024) NOT NULL DEFAULT '' COMMENT '表变更,指定需要同步到kafk表中的column,中间用逗号隔开',
+
+

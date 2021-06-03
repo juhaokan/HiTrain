@@ -15,6 +15,29 @@ curl -X POST -d  '{"tables":"lxp1.lxp1,lxp.order_info"}' http://ip:8081/fusion/d
 mysql采用MHA做高可用方案，fusion配置文件中配置主从地址，默认是做为mysql主节点的从，当主从切换后，Fusion自动切到新主上，从对应的位置开始同步，不会丢失数据。
 
 ## kafka中消息格式
-数据格式：
+json数据格式：
+'''
+{
+	"sid": 20,
+	"dbname": "school",
+	"tbname": "class",
+	"filename": "mysql-bin.000011",
+	"position": 1549,
+	"event": "update",
+	"columns": [{
+		"id": 1,
+		"name": "lxp"
+	}, {
+		"id": 1,
+		"name": "lbg"
+	}, {
+		"id": 2,
+		"name": "hxf"
+	}, {
+		"id": 2,
+		"name": "hxj"
+	}]
 
+}
+'''
 

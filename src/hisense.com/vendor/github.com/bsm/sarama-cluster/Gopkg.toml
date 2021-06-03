@@ -1,0 +1,30 @@
+
+# Gopkg.toml example
+#
+# Refer to https://github.com/golang/dep/blob/master/docs/Gopkg.toml.md
+# for detailed Gopkg.toml documentation.
+#
+# required = ["github.com/user/thing/cmd/thing"]
+# ignored = ["github.com/user/project/pkgX", "bitbucket.org/user/project/pkgA/pkgY"]
+#
+# [[constraint]]
+#   name = "github.com/user/project"
+#   version = "1.0.0"
+#
+# [[constraint]]
+#   name = "github.com/user/project2"
+#   branch = "dev"
+#   source = "github.com/myfork/project2"
+#
+# [[override]]
+#  name = "github.com/x/y"
+#  version = "2.4.0"
+
+
+[[constraint]]
+  name = "github.com/Shopify/sarama"
+  version = "^1.14.0"
+	//3. binding XML
+
+	
+ curl -H 'Content-Type:application/xml' -d '<?xml version="1.0" encoding="UTF-8"?><root><name>user</name><address>123</address><birthday>1992-03-15T15:04:05Z</birthday></root>)' "http://localhost:8080/binding"

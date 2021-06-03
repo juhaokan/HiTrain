@@ -16,7 +16,7 @@ mysql采用MHA做高可用方案，fusion配置文件中配置主从地址，默
 
 ## kafka中消息格式
 json数据格式：
-'''
+```bash
 {
 	"sid": 20,
 	"dbname": "school",
@@ -39,5 +39,5 @@ json数据格式：
 	}]
 
 }
-'''
+```
 

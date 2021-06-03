@@ -18,29 +18,3 @@ mysql采用MHA做高可用方案，fusion配置文件中配置主从地址，默
 数据格式：
 
 
-Xml格式如下：
-<?xml version="1.0" encoding="UTF-8"?>
-  <content>
-      <dbname>lxp</dbname>
-      <tbname>lxp</tbname>
-      <filename>mysql-bin.000011</filename>
-      <position>1549</position>
-      <event>update</event>
-      <columns>
-          <column name="id">1</column>
-          <column name="name">lxp</column>
-      </columns>
-<columns >
-          <column name="id">1</column>
-          <column name="name">aa</column>
-      </columns >
-      <columns>
-          <column name="id">2</column>
-          <column name="name">lxp</column>
-      </columns>
-      <columns >
-          <column name="id">2</column>
-          <column name="name">aa</column>
-      </columns >
-  </content>
-

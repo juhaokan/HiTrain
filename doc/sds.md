@@ -41,3 +41,31 @@ json数据格式：
 }
 ```
 
+xml数据格式
+```bash
+<?xml version="1.0" encoding="utf-8"?>
+
+<content> 
+  <dbname>lxp</dbname>  
+  <tbname>lxp</tbname>  
+  <filename>mysql-bin.000011</filename>  
+  <position>1549</position>  
+  <event>update</event>  
+  <columns> 
+    <column name="id">1</column>  
+    <column name="name">lxp</column> 
+  </columns>  
+  <columns> 
+    <column name="id">1</column>  
+    <column name="name">lbg</column> 
+  </columns>  
+  <columns> 
+    <column name="id">2</column>  
+    <column name="name">hxf</column> 
+  </columns>  
+  <columns> 
+    <column name="id">2</column>  
+    <column name="name">hxj</column> 
+  </columns> 
+</content>
+```

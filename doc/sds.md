@@ -16,28 +16,7 @@ mysql采用MHA做高可用方案，fusion配置文件中配置主从地址，默
 
 ## kafka中消息格式
 数据格式：
-{
-	"sid": 20,
-	"dbname": "lxp",
-	"tbname": "lxp",
-	"filename": "mysql-bin.000011",
-	"position": 1549,
-	"event": "update",
-	"columns": [{
-		"id": 1,
-		"name": "lxp"               //update之后的
-	}, {
-		"id": 1,
-		"name": "aa"                  //update之前的
-	}, {
-		"id": 2,
-		"name": "lxp"            //update之后的
-	}, {
-		"id": 2,
-		"name": "aa"             //update之前的
-	}]
 
-}
 
 Xml格式如下：
 <?xml version="1.0" encoding="UTF-8"?>
@@ -55,7 +34,6 @@ Xml格式如下：
           <column name="id">1</column>
           <column name="name">aa</column>
       </columns >
-
       <columns>
           <column name="id">2</column>
           <column name="name">lxp</column>

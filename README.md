@@ -15,8 +15,8 @@
 2018--2020连续3年被评为“中国独角兽企业”，成为行业里程碑。
 
 ## Authors
-[@juhaokan](https://github.com/juhaokan)
-[@liuxianpan01](https://github.com/liuxianpan01)
+* [@juhaokan](https://github.com/juhaokan)
+* [@liuxianpan01](https://github.com/liuxianpan01)
 
 ## License
 Codis is licensed under MIT， see MIT-LICENSE.txt

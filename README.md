@@ -8,7 +8,7 @@
 [中文](doc/releasenotes.md)
 
 ## Architecture
-![architecture](doc/Fusion.png)
+![architecture](doc/HiTrain.png)
 
 ## Company
 [聚好看](https://www.juhaokan.org/#/home)（聚好看科技股份有限公司）是海信集团下属的家庭互联网AI公司，成立于2016年7月。聚好看科技致力于成为领先的家庭互联网AI公司，为全球亿万家庭提供场景化服务。

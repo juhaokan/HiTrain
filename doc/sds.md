@@ -17,7 +17,7 @@ curl -X POST -d  '{"tables":"lxp1.lxp1,lxp.order_info"}' http://ip:8081/fusion/d
 向规则表中添加一条operation字段为3的数据，则动态增加表同步；operation字段为4，则动态删除表同步；
 
 ## mysql 主从切换后高可用
-mysql采用MHA做高可用方案，fusion配置文件中配置主从地址，默认是做为mysql主节点的从，当主从切换后，HiTrain自动切到新主上，从对应的位置开始同步，不会丢失数据。
+mysql采用MHA做高可用方案，hitrain配置文件中配置主从地址，默认是做为mysql主节点的从，当主从切换后，HiTrain自动切到新主上，从对应的位置开始同步，不会丢失数据。
 
 ## kafka中消息格式
 json数据格式：

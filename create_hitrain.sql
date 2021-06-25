@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS fusion DEFAULT CHARACTER SET utf8;
-USE fusion;
+CREATE DATABASE IF NOT EXISTS hitrain DEFAULT CHARACTER SET utf8;
+USE hitrain;
 
 create table if not exists `table_rule_info` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '自增ID',
@@ -48,23 +48,23 @@ BEGIN
 END$$
 DELIMITER ;
 
-CALL AddColumnUnlessExists('fusion', 'table_rule_info', 'kafka_key_columns', "varchar(1024) NOT NULL DEFAULT '' COMMENT '针对多partition场景,同步到kafka中的key格式以什么维度存储,多个column中间用逗号隔开如\"column1,column2\";kafka中key格式column1:column2'");
+CALL AddColumnUnlessExists('hitrain', 'table_rule_info', 'kafka_key_columns', "varchar(1024) NOT NULL DEFAULT '' COMMENT '针对多partition场景,同步到kafka中的key格式以什么维度存储,多个column中间用逗号隔开如\"column1,column2\";kafka中key格式column1:column2'");
 
-CALL AddColumnUnlessExists('fusion', 'table_rule_info', 'kafka_topic_rule', "varchar(1024) NOT NULL DEFAULT '' COMMENT '针对多topic场景,根据column不同的值，写到不同的topic，格式{\"column_name\":\"category_id\",\"topic_rule\":{\"1008\":\"topic1\",\"1009\":\"topic2\"}}'");
+CALL AddColumnUnlessExists('hitrain', 'table_rule_info', 'kafka_topic_rule', "varchar(1024) NOT NULL DEFAULT '' COMMENT '针对多topic场景,根据column不同的值，写到不同的topic，格式{\"column_name\":\"category_id\",\"topic_rule\":{\"1008\":\"topic1\",\"1009\":\"topic2\"}}'");
 
-CALL AddColumnUnlessExists('fusion', 'table_rule_info', 'delay_del', "int NOT NULL DEFAULT 0 COMMENT '针对delete操作，是否延迟删除redis对应的key，0不延迟，1延迟'");
+CALL AddColumnUnlessExists('hitrain', 'table_rule_info', 'delay_del', "int NOT NULL DEFAULT 0 COMMENT '针对delete操作，是否延迟删除redis对应的key，0不延迟，1延迟'");
 
-CALL AddColumnUnlessExists('fusion', 'table_rule_info', 'delay_expire_time', "int NOT NULL DEFAULT 3600 COMMENT '针对delete操作, 延迟多久删除即过期redis对应的key，单位秒，只针对string和hash类型的key'");
+CALL AddColumnUnlessExists('hitrain', 'table_rule_info', 'delay_expire_time', "int NOT NULL DEFAULT 3600 COMMENT '针对delete操作, 延迟多久删除即过期redis对应的key，单位秒，只针对string和hash类型的key'");
 
-CALL AddColumnUnlessExists('fusion', 'table_rule_info', 'kafka_is_full_column', "int(4) NOT NULL DEFAULT 1 COMMENT '表变更是否是同步表中所有字段到kafka,1代表是,0代表不是'");
+CALL AddColumnUnlessExists('hitrain', 'table_rule_info', 'kafka_is_full_column', "int(4) NOT NULL DEFAULT 1 COMMENT '表变更是否是同步表中所有字段到kafka,1代表是,0代表不是'");
 
-CALL AddColumnUnlessExists('fusion', 'table_rule_info', 'kafka_replic_columns', "varchar(1024) NOT NULL DEFAULT '' COMMENT '表变更,指定需要同步到kafk表中的column,中间用逗号隔开'");
+CALL AddColumnUnlessExists('hitrain', 'table_rule_info', 'kafka_replic_columns', "varchar(1024) NOT NULL DEFAULT '' COMMENT '表变更,指定需要同步到kafk表中的column,中间用逗号隔开'");
 
 DROP PROCEDURE IF EXISTS AddColumnUnlessExists;
 
 
 CREATE TABLE if not exists  `working_info` (
-  `sid` int(11) NOT NULL COMMENT 'fusion 进程标识',
+  `sid` int(11) NOT NULL COMMENT 'hitrain 进程标识',
   `mysql_addr` varchar(128) NOT NULL DEFAULT '""' COMMENT '同步的mysql地址',
   `file_name` varchar(128) NOT NULL DEFAULT '"""' COMMENT '解析的文件名',
   `position` int(11) NOT NULL DEFAULT '0' COMMENT '解析到的位置',
@@ -75,9 +75,9 @@ CREATE TABLE if not exists  `working_info` (
 CREATE TABLE if not exists `mysql_pos_info` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '自增ID',
   `sid` int(11) NOT NULL COMMENT 'mysql2redis 网元标示,不同业务sid不同',
-  `master_mysql_addr` varchar(128) NOT NULL DEFAULT '' COMMENT 'fusion监听的mysql地址',
-  `master_binlog_file_name` varchar(128) NOT NULL DEFAULT '' COMMENT 'fusion监听的mysql的binlog文件名',
-  `master_binlog_position` int(11) NOT NULL DEFAULT '0' COMMENT 'fusion监听的mysql的binlog的pos位置',
+  `master_mysql_addr` varchar(128) NOT NULL DEFAULT '' COMMENT 'hitrain监听的mysql地址',
+  `master_binlog_file_name` varchar(128) NOT NULL DEFAULT '' COMMENT 'hitrain监听的mysql的binlog文件名',
+  `master_binlog_position` int(11) NOT NULL DEFAULT '0' COMMENT 'hitrain监听的mysql的binlog的pos位置',
   `slave_mysql_addr` varchar(128) NOT NULL DEFAULT '' COMMENT 'mysql从节点的地址',
   `slave_binlog_file_name` varchar(128) NOT NULL DEFAULT '' COMMENT 'mysql从节点的binlog文件名',
   `slave_binlog_position` int(11) NOT NULL DEFAULT '0' COMMENT 'mysql从节点的binlog的pos位置',

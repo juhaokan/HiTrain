@@ -9,12 +9,12 @@ echo "CURRENT_VERSION=[${CURRENT_VERSION}], GOPATH=[${GOPATH}], GOROOT=[${GOROOT
 
 
 ${GOROOT}/bin/go install -v hisense.com/fusion
-
-cp -a ../src/hisense.com/conf/fusiondataprocessing.conf  ../bin/fusiondataprocessing.conf
+mv "$GOBIN/fusion" "$GOBIN/hitrain"
+cp -a ../src/hisense.com/conf/hitrain.conf  ../bin/hitrain.conf
 cp -a mysqldump ../bin/
 cp -a mysqldump8 ../bin/
-cp -a start_fusion.sh ../bin
+cp -a start_hitrain.sh ../bin
 chmod +x ../bin/mysqldump
 chmod +x ../bin/mysqldump8
-chmod +x ../bin/start_fusion.sh
+chmod +x ../bin/start_hitrain.sh
 

@@ -17,7 +17,7 @@ sh build.sh
 
 或者说不需要编译，直接下载可执行文件即可。
 
-* 首先使用create_fusion.sql创建元数据库，然后将要同步的信息配置到table_rule_info表
+* 首先使用create_train.sql创建元数据库，然后将要同步的信息配置到table_rule_info表
 * 根据实际情况修改配置文件后，执行启动脚本（可自行修改启动参数）进行部署。
 
 
